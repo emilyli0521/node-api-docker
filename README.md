@@ -39,8 +39,8 @@ ENV NODE_ENV=production
 
 **Image size 驗證**
 ```
-1.docker images | findstr candidate-api
-1.candidate-api:challenge   ed52d7caf2e1        202MB         49.2MB
+docker images | findstr candidate-api
+candidate-api:challenge   ed52d7caf2e1        202MB         49.2MB
 ```
 ## B. 使用者與權限（Non-root）檢核 
 
@@ -62,10 +62,11 @@ USER nodeapp
 ```
 
 **驗證**
-1.docker exec -it candidate-api sh -lc "whoami && id"
-1.nodeapp
-uid=100(nodeapp) gid=101(nodeapp) groups=101(nodeapp)  
-
+```
+docker exec -it candidate-api sh -lc "whoami && id"
+nodeapp
+uid=100(nodeapp) gid=101(nodeapp) groups=101(nodeapp)
+```
 
 ## C. Production dependencies 檢核
 
@@ -151,11 +152,15 @@ HEALTHCHECK --interval=10s --timeout=3s --start-period=10s --retries=3 \
   ```
 
 **驗證**
-1.docker inspect candidate-api --format "{{json .Config.Healthcheck}}"
-2.docker inspect candidate-api --format "{{.State.Health.Status}}"
-1.{"Test":["CMD-SHELL","node -e \"const http=require('http');const req=http.get({host:'127.0.0.1',port:3000,path:'/'},res=>process.exit(res.statusCode>=200&&res.statusCode<500?0:1));req.on('error',()=>process.exit(1));req.setTimeout(2000,()=>{req.destroy();process.exit(1);});\""],"Interval":10000000000,"Timeout":3000000000,"StartPeriod":10000000000,"Retries":3}
-2.healthy
 
+1.docker inspect candidate-api --format "{{json .Config.Healthcheck}}"
+```
+{"Test":["CMD-SHELL","node -e \"const http=require('http');const req=http.get({host:'127.0.0.1',port:3000,path:'/'},res=>process.exit(res.statusCode>=200&&res.statusCode<500?0:1));req.on('error',()=>process.exit(1));req.setTimeout(2000,()=>{req.destroy();process.exit(1);});\""],"Interval":10000000000,"Timeout":3000000000,"StartPeriod":10000000000,"Retries":3}
+```
+2.docker inspect candidate-api --format "{{.State.Health.Status}}"
+```
+healthy
+```
 ## G. 安全與最佳實務檢核
 
 ✅ 撰寫並使用 .dockerignore
@@ -186,6 +191,7 @@ docker-compose*.yml
 ## H. 驗收指令執行確認
 
 以下指令皆已實際執行並確認結果正確：
+```
 1.docker build -t candidate-api:challenge .
 PS C:\Users\Emily\Desktop\docker apply> docker build -t candidate-api:challenge .                             
 [+] Building 2.6s (16/16) FINISHED                                                       docker:desktop-linux
@@ -506,3 +512,4 @@ uid=100(nodeapp) gid=101(nodeapp) groups=101(nodeapp)
 ]
 6.docker stop candidate-api
 candidate-api
+```
