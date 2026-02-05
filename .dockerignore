@@ -1,0 +1,23 @@
+# Node
+**/node_modules
+npm-debug.log
+yarn.lock
+pnpm-lock.yaml
+
+# VCS / editor
+.git
+.gitignore
+.vscode
+.idea
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docs / misc
+*.md
+*.pdf
+
+# Docker
+Dockerfile
+docker-compose*.yml
