@@ -38,10 +38,10 @@ ENV NODE_ENV=production
 ```
 
 **Image size 驗證**
+```
 1.docker images | findstr candidate-api
-1.candidate-api:challenge   ed52d7caf2e1        202MB         49.2MB    
-
-
+1.candidate-api:challenge   ed52d7caf2e1        202MB         49.2MB
+```
 ## B. 使用者與權限（Non-root）檢核 
 
 ✅ container 內程式非 root 執行
