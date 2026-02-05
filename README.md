@@ -62,8 +62,10 @@ USER nodeapp
 ```
 
 **驗證**
-```
+```bash
 docker exec -it candidate-api sh -lc "whoami && id"
+```
+```text
 nodeapp
 uid=100(nodeapp) gid=101(nodeapp) groups=101(nodeapp)
 ```
@@ -153,12 +155,16 @@ HEALTHCHECK --interval=10s --timeout=3s --start-period=10s --retries=3 \
 
 **驗證**
 
-1.docker inspect candidate-api --format "{{json .Config.Healthcheck}}"
+```bash
+docker inspect candidate-api --format "{{json .Config.Healthcheck}}"
 ```
+```text
 {"Test":["CMD-SHELL","node -e \"const http=require('http');const req=http.get({host:'127.0.0.1',port:3000,path:'/'},res=>process.exit(res.statusCode>=200&&res.statusCode<500?0:1));req.on('error',()=>process.exit(1));req.setTimeout(2000,()=>{req.destroy();process.exit(1);});\""],"Interval":10000000000,"Timeout":3000000000,"StartPeriod":10000000000,"Retries":3}
 ```
-2.docker inspect candidate-api --format "{{.State.Health.Status}}"
+```bash
+docker inspect candidate-api --format "{{.State.Health.Status}}"
 ```
+```text
 healthy
 ```
 ## G. 安全與最佳實務檢核
@@ -191,8 +197,10 @@ docker-compose*.yml
 ## H. 驗收指令執行確認
 
 以下指令皆已實際執行並確認結果正確：
+```bash
+docker build -t candidate-api:challenge .
 ```
-1.docker build -t candidate-api:challenge .
+```text
 PS C:\Users\Emily\Desktop\docker apply> docker build -t candidate-api:challenge .                             
 [+] Building 2.6s (16/16) FINISHED                                                       docker:desktop-linux
  => [internal] load build definition from Dockerfile                                                     0.0s
@@ -223,10 +231,17 @@ PS C:\Users\Emily\Desktop\docker apply> docker build -t candidate-api:challenge 
                    0.0s
  => => unpacking to docker.io/library/candidate-api:challenge                                            0.0s
 
-2.docker run --rm -p 8080:3000 --name candidate-api candidate-api:challenge
+```
+```bash
+docker run --rm -p 8080:3000 --name candidate-api candidate-api:challenge
+```
+```text
 Server listening on port 3000
-
-3.curl.exe -i http://localhost:8080/
+```
+```bash
+curl.exe -i http://localhost:8080/
+```
+```text
 HTTP/1.1 200 OK
 X-Powered-By: Express
 Content-Type: text/html; charset=utf-8
@@ -237,12 +252,18 @@ Connection: keep-alive
 Keep-Alive: timeout=5
 
 OK
-
-4.docker exec -it candidate-api sh -lc "whoami && id"
+```
+```bash
+docker exec -it candidate-api sh -lc "whoami && id"
+```
+```text
 nodeapp
 uid=100(nodeapp) gid=101(nodeapp) groups=101(nodeapp)
-
-5.docker inspect candidate-api
+```
+```bash
+docker inspect candidate-api
+```
+```text
 [
     {
         "Id": "9f87824d45b6b4cb6159c134c2331f380e51fb8db0b34252e4c2e85a93b282b1",    
@@ -510,6 +531,10 @@ uid=100(nodeapp) gid=101(nodeapp) groups=101(nodeapp)
         }
     }
 ]
+```
+```bash
 6.docker stop candidate-api
+```
+```text
 candidate-api
 ```
