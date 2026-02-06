@@ -198,7 +198,7 @@ docker-compose*.yml
 
 以下指令皆已實際執行並確認結果正確：
 ```bash
-docker build -t candidate-api:challenge .
+1. docker build -t candidate-api:challenge .
 ```
 ```text
 PS C:\Users\Emily\Desktop\docker apply> docker build -t candidate-api:challenge .                             
@@ -233,13 +233,13 @@ PS C:\Users\Emily\Desktop\docker apply> docker build -t candidate-api:challenge 
 
 ```
 ```bash
-docker run --rm -p 8080:3000 --name candidate-api candidate-api:challenge
+2. docker run --rm -p 8080:3000 --name candidate-api candidate-api:challenge
 ```
 ```text
 Server listening on port 3000
 ```
 ```bash
-curl -i http://localhost:8080/
+3. curl -i http://localhost:8080/
 ```
 ```text
 HTTP/1.1 200 OK
@@ -254,14 +254,14 @@ Keep-Alive: timeout=5
 OK
 ```
 ```bash
-docker exec -it candidate-api sh -lc "whoami && id"
+4. docker exec -it candidate-api sh -lc "whoami && id"
 ```
 ```text
 nodeapp
 uid=100(nodeapp) gid=101(nodeapp) groups=101(nodeapp)
 ```
 ```bash
-docker inspect candidate-api | grep -i -A5 health
+5. docker inspect candidate-api | grep -i -A5 health
 ```
 ```text
             "Health": {
@@ -280,17 +280,22 @@ docker inspect candidate-api | grep -i -A5 health
                 "Interval": 10000000000,
 ```
 ```bash
-6.docker stop candidate-api
+6. docker stop candidate-api
 ```
 ```text
 candidate-api
 ```
+### 行為說明
+1.docker stop 後容器在1秒內結束
 
-## I.自我聲明（必填）
+2.logs 沒有卡住，未被 SIGKILL
+
+## I. 自我聲明（必填）
 我確認以上檢核項目皆為我本人實際完成與驗證，
 非僅複製範例或未經理解的內容。
 若於面試追問時無法解釋，願接受不通過結果。
 
 姓名：李宜蓁
 日期：2026/2/6
+
 
