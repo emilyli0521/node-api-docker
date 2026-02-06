@@ -239,7 +239,7 @@ docker run --rm -p 8080:3000 --name candidate-api candidate-api:challenge
 Server listening on port 3000
 ```
 ```bash
-curl.exe -i http://localhost:8080/
+curl -i http://localhost:8080/
 ```
 ```text
 HTTP/1.1 200 OK
@@ -247,7 +247,7 @@ X-Powered-By: Express
 Content-Type: text/html; charset=utf-8
 Content-Length: 3
 ETag: W/"3-CftlTBfMBbEe9TvTWqcB9tVQ6OE"
-Date: Thu, 05 Feb 2026 14:07:13 GMT
+Date: Fri, 06 Feb 2026 06:14:23 GMT
 Connection: keep-alive
 Keep-Alive: timeout=5
 
@@ -261,276 +261,23 @@ nodeapp
 uid=100(nodeapp) gid=101(nodeapp) groups=101(nodeapp)
 ```
 ```bash
-docker inspect candidate-api
+docker inspect candidate-api | grep -i -A5 health
 ```
 ```text
-[
-    {
-        "Id": "9f87824d45b6b4cb6159c134c2331f380e51fb8db0b34252e4c2e85a93b282b1",    
-        "Created": "2026-02-05T13:51:22.775793612Z",
-        "Path": "docker-entrypoint.sh",
-        "Args": [
-            "node",
-            "src/index.js"
-        ],
-        "State": {
-            "Status": "running",
-            "Running": true,
-            "Paused": false,
-            "Restarting": false,
-            "OOMKilled": false,
-            "Dead": false,
-            "Pid": 28235,
-            "ExitCode": 0,
-            "Error": "",
-            "StartedAt": "2026-02-05T13:51:22.888242589Z",
-            "FinishedAt": "0001-01-01T00:00:00Z",
             "Health": {
                 "Status": "healthy",
                 "FailingStreak": 0,
                 "Log": [
                     {
-                        "Start": "2026-02-05T14:09:21.360245568Z",
-                        "End": "2026-02-05T14:09:21.506204838Z",
-                        "ExitCode": 0,
-                        "Output": ""
-                    },
-                    {
-                        "Start": "2026-02-05T14:09:31.515681433Z",
-                        "End": "2026-02-05T14:09:31.653447353Z",
-                        "ExitCode": 0,
-                        "Output": ""
-                    },
-                    {
-                        "Start": "2026-02-05T14:09:41.600525321Z",
-                        "End": "2026-02-05T14:09:41.748895549Z",
-                        "ExitCode": 0,
-                        "Output": ""
-                    },
-                    {
-                        "Start": "2026-02-05T14:09:51.75112601Z",
-                        "End": "2026-02-05T14:09:51.91384774Z",
-                        "ExitCode": 0,
-                        "Output": ""
-                    },
-                    {
-                        "Start": "2026-02-05T14:10:01.915666884Z",
-                        "End": "2026-02-05T14:10:02.055946483Z",
-                        "ExitCode": 0,
-                        "Output": ""
-                    }
-                ]
-            }
-        },
-        "Image": "sha256:aafcc6aa62bcb68dfad716e6643440478fab6732110e5738696de29f10e20fd9",
-        "ResolvConfPath": "/var/lib/docker/containers/9f87824d45b6b4cb6159c134c2331f380e51fb8db0b34252e4c2e85a93b282b1/resolv.conf",
-        "HostnamePath": "/var/lib/docker/containers/9f87824d45b6b4cb6159c134c2331f380e51fb8db0b34252e4c2e85a93b282b1/hostname",
-        "HostsPath": "/var/lib/docker/containers/9f87824d45b6b4cb6159c134c2331f380e51fb8db0b34252e4c2e85a93b282b1/hosts",
-        "LogPath": "/var/lib/docker/containers/9f87824d45b6b4cb6159c134c2331f380e51fb8db0b34252e4c2e85a93b282b1/9f87824d45b6b4cb6159c134c2331f380e51fb8db0b34252e4c2e85a93b282b1-json.log",
-        "Name": "/candidate-api",
-        "RestartCount": 0,
-        "Driver": "overlayfs",
-        "Platform": "linux",
-        "MountLabel": "",
-        "ProcessLabel": "",
-        "AppArmorProfile": "",
-        "ExecIDs": null,
-        "HostConfig": {
-            "Binds": null,
-            "ContainerIDFile": "",
-            "LogConfig": {
-                "Type": "json-file",
-                "Config": {}
-            },
-            "NetworkMode": "bridge",
-            "PortBindings": {
-                "3000/tcp": [
-                    {
-                        "HostIp": "",
-                        "HostPort": "8080"
-                    }
-                ]
-            },
-            "RestartPolicy": {
-                "Name": "no",
-                "MaximumRetryCount": 0
-            },
-            "AutoRemove": true,
-            "VolumeDriver": "",
-            "VolumesFrom": null,
-            "ConsoleSize": [
-                11,
-                110
-            ],
-            "CapAdd": null,
-            "CapDrop": null,
-            "CgroupnsMode": "private",
-            "Dns": null,
-            "DnsOptions": [],
-            "DnsSearch": [],
-            "ExtraHosts": null,
-            "GroupAdd": null,
-            "IpcMode": "private",
-            "Cgroup": "",
-            "Links": null,
-            "OomScoreAdj": 0,
-            "PidMode": "",
-            "Privileged": false,
-            "PublishAllPorts": false,
-            "ReadonlyRootfs": false,
-            "SecurityOpt": null,
-            "UTSMode": "",
-            "UsernsMode": "",
-            "ShmSize": 67108864,
-            "Runtime": "runc",
-            "Isolation": "",
-            "CpuShares": 0,
-            "Memory": 0,
-            "NanoCpus": 0,
-            "CgroupParent": "",
-            "BlkioWeight": 0,
-            "BlkioWeightDevice": [],
-            "BlkioDeviceReadBps": [],
-            "BlkioDeviceWriteBps": [],
-            "BlkioDeviceReadIOps": [],
-            "BlkioDeviceWriteIOps": [],
-            "CpuPeriod": 0,
-            "CpuQuota": 0,
-            "CpuRealtimePeriod": 0,
-            "CpuRealtimeRuntime": 0,
-            "CpusetCpus": "",
-            "CpusetMems": "",
-            "Devices": [],
-            "DeviceCgroupRules": null,
-            "DeviceRequests": null,
-            "MemoryReservation": 0,
-            "MemorySwap": 0,
-            "MemorySwappiness": null,
-            "OomKillDisable": null,
-            "PidsLimit": null,
-            "Ulimits": [],
-            "CpuCount": 0,
-            "CpuPercent": 0,
-            "IOMaximumIOps": 0,
-            "IOMaximumBandwidth": 0,
-            "MaskedPaths": [
-                "/proc/acpi",
-                "/proc/asound",
-                "/proc/interrupts",
-                "/proc/kcore",
-                "/proc/keys",
-                "/proc/latency_stats",
-                "/proc/sched_debug",
-                "/proc/scsi",
-                "/proc/timer_list",
-                "/proc/timer_stats",
-                "/sys/devices/virtual/powercap",
-                "/sys/firmware"
-            ],
-            "ReadonlyPaths": [
-                "/proc/bus",
-                "/proc/fs",
-                "/proc/irq",
-                "/proc/sys",
-                "/proc/sysrq-trigger"
-            ]
-        },
-        "Storage": {
-            "RootFS": {
-                "Snapshot": {
-                    "Name": "overlayfs"
-                }
-            }
-        },
-        "Mounts": [],
-        "Config": {
-            "Hostname": "9f87824d45b6",
-            "Domainname": "",
-            "User": "nodeapp",
-            "AttachStdin": false,
-            "AttachStdout": true,
-            "AttachStderr": true,
-            "ExposedPorts": {
-                "3000/tcp": {}
-            },
-            "Tty": false,
-            "OpenStdin": false,
-            "StdinOnce": false,
-            "Env": [
-                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin", 
-                "NODE_VERSION=20.20.0",
-                "YARN_VERSION=1.22.22",
-                "NODE_ENV=production"
-            ],
-            "Cmd": [
-                "node",
-                "src/index.js"
-            ],
+                        "Start": "2026-02-06T06:13:50.467246916Z",
+                        "End": "2026-02-06T06:13:50.597819789Z",
+--
             "Healthcheck": {
                 "Test": [
                     "CMD-SHELL",
                     "node -e \"const http=require('http');const req=http.get({host:'127.0.0.1',port:3000,path:'/'},res=\u003eprocess.exit(res.statusCode\u003e=200\u0026\u0026res.statusCode\u003c500?0:1));req.on('error',()=\u003eprocess.exit(1));req.setTimeout(2000,()=\u003e{req.destroy();process.exit(1);});\""
                 ],
                 "Interval": 10000000000,
-                "Timeout": 3000000000,
-                "StartPeriod": 10000000000,
-                "Retries": 3
-            },
-            "Image": "candidate-api:challenge",
-            "Volumes": null,
-            "WorkingDir": "/app",
-            "Entrypoint": [
-                "docker-entrypoint.sh"
-            ],
-            "Labels": {},
-            "StopTimeout": 1
-        },
-        "NetworkSettings": {
-            "SandboxID": "27a9a5f36b73fbe4dc6af9885002cceac4a3dcfb4a09bc6eb3d3f03907ceb30f",
-            "SandboxKey": "/var/run/docker/netns/27a9a5f36b73",
-            "Ports": {
-                "3000/tcp": [
-                    {
-                        "HostIp": "0.0.0.0",
-                        "HostPort": "8080"
-                    },
-                    {
-                        "HostIp": "::",
-                        "HostPort": "8080"
-                    }
-                ]
-            },
-            "Networks": {
-                "bridge": {
-                    "IPAMConfig": null,
-                    "Links": null,
-                    "Aliases": null,
-                    "DriverOpts": null,
-                    "GwPriority": 0,
-                    "NetworkID": "c7307119d55bf143b974863736dcbb846fbad06a581a258d8788267ac833b94c",
-                    "EndpointID": "35819b3edb1dc0014441950fe8c6a65182d98c450b48c580932645e450cff6d9",
-                    "Gateway": "172.17.0.1",
-                    "IPAddress": "172.17.0.2",
-                    "MacAddress": "32:e4:42:2e:59:5f",
-                    "IPPrefixLen": 16,
-                    "IPv6Gateway": "",
-                    "GlobalIPv6Address": "",
-                    "GlobalIPv6PrefixLen": 0,
-                    "DNSNames": null
-                }
-            }
-        },
-        "ImageManifestDescriptor": {
-            "mediaType": "application/vnd.oci.image.manifest.v1+json",
-            "digest": "sha256:e4923586f89cb978c6deff5da4ac47c58b1a861bd9ac4e188de5fbfca635ea0c",
-            "size": 2564,
-            "platform": {
-                "architecture": "amd64",
-                "os": "linux"
-            }
-        }
-    }
-]
 ```
 ```bash
 6.docker stop candidate-api
