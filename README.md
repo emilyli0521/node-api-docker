@@ -120,7 +120,7 @@ src/ 變動頻率高，放在後面
 
 ✅ 使用 exec form 的 CMD
 
-✅ docker stop 時可優雅停止
+✅ docker stop 時可即刻停止
 
 ✅ 未被強制 SIGKILL
 
