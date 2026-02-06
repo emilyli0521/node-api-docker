@@ -285,3 +285,12 @@ docker inspect candidate-api | grep -i -A5 health
 ```text
 candidate-api
 ```
+
+## I.自我聲明（必填）
+我確認以上檢核項目皆為我本人實際完成與驗證，
+非僅複製範例或未經理解的內容。
+若於面試追問時無法解釋，願接受不通過結果。
+
+姓名：李宜蓁
+日期：2026/2/6
+
