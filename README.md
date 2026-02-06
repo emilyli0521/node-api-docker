@@ -201,35 +201,34 @@ docker-compose*.yml
 1. docker build -t candidate-api:challenge .
 ```
 ```text
-PS C:\Users\Emily\Desktop\docker apply> docker build -t candidate-api:challenge .                             
-[+] Building 2.6s (16/16) FINISHED                                                       docker:desktop-linux
- => [internal] load build definition from Dockerfile                                                     0.0s
- => => transferring dockerfile: 1.89kB                                                                   0.0s 
- => [internal] load metadata for docker.io/library/node:20-alpine                                        2.1s 
- => [internal] load .dockerignore                                                                        0.0s
- => => transferring context: 266B                                                                        0.0s 
- => [deps 1/4] FROM docker.io/library/node:20-alpine@sha256:09e2b3d9726018aecf269bd35325f46bf75046a643a  0.0s 
- => => resolve docker.io/library/node:20-alpine@sha256:09e2b3d9726018aecf269bd35325f46bf75046a643a66d28  0.0s 
- => [internal] load build context                                                                        0.0s 
- => => transferring context: 166B                                                                        0.0s 
- => CACHED [deps 2/4] WORKDIR /app                                                                       0.0s
- => CACHED [runner 3/9] RUN addgroup -S nodeapp && adduser -S nodeapp -G nodeapp                         0.0s 
- => CACHED [deps 3/4] COPY app/package.json app/package-lock.json ./                                     0.0s 
- => CACHED [deps 4/4] RUN npm ci --omit=dev                                                              0.0s 
- => CACHED [runner 4/9] COPY --from=deps /app/node_modules ./node_modules                                0.0s 
- => CACHED [runner 5/9] COPY app/src ./src                                                               0.0s 
- => CACHED [runner 6/9] COPY app/package.json ./package.json                                             0.0s 
- => CACHED [runner 7/9] RUN chown -R nodeapp:nodeapp /app   && chmod -R go-w /app                        0.0s 
- => CACHED [runner 8/9] RUN rm -rf /usr/local/lib/node_modules/npm   && rm -f /usr/local/bin/npm /usr/l  0.0s 
- => CACHED [runner 9/9] RUN rm -rf   /usr/local/lib/node_modules/npm   /usr/local/lib/node_modules/core  0.0s 
- => exporting to image                                                                                   0.2s 
- => => exporting layers                                                                                  0.0s 
- => => exporting manifest sha256:e4923586f89cb978c6deff5da4ac47c58b1a861bd9ac4e188de5fbfca635ea0c        0.0s 
- => => exporting attestation manifest sha256:4c427550dc5c66111eb2d56df7bdd8fa931ee344cac93c37941f278777  0.0s
-                   0.0s
- => => unpacking to docker.io/library/candidate-api:challenge                                            0.0s
-                   0.0s
- => => unpacking to docker.io/library/candidate-api:challenge                                            0.0s
+[+] Building 2.8s (16/16) FINISHED                                                     docker:default
+ => [internal] load build definition from Dockerfile                                             0.1s
+ => => transferring dockerfile: 1.89kB                                                           0.0s
+ => [internal] load metadata for docker.io/library/node:20-alpine                                2.1s
+ => [internal] load .dockerignore                                                                0.0s
+ => => transferring context: 266B                                                                0.0s
+ => [deps 1/4] FROM docker.io/library/node:20-alpine@sha256:09e2b3d9726018aecf269bd35325f46bf75  0.0s
+ => => resolve docker.io/library/node:20-alpine@sha256:09e2b3d9726018aecf269bd35325f46bf75046a6  0.0s
+ => [internal] load build context                                                                0.1s
+ => => transferring context: 166B                                                                0.1s
+ => CACHED [deps 2/4] WORKDIR /app                                                               0.0s
+ => CACHED [runner 3/9] RUN addgroup -S nodeapp && adduser -S nodeapp -G nodeapp                 0.0s
+ => CACHED [deps 3/4] COPY app/package.json app/package-lock.json ./                             0.0s
+ => CACHED [deps 4/4] RUN npm ci --omit=dev                                                      0.0s
+ => CACHED [runner 4/9] COPY --from=deps /app/node_modules ./node_modules                        0.0s
+ => CACHED [runner 5/9] COPY app/src ./src                                                       0.0s
+ => CACHED [runner 6/9] COPY app/package.json ./package.json                                     0.0s
+ => CACHED [runner 7/9] RUN chown -R nodeapp:nodeapp /app   && chmod -R go-w /app                0.0s
+ => CACHED [runner 8/9] RUN rm -rf /usr/local/lib/node_modules/npm   && rm -f /usr/local/bin/np  0.0s
+ => CACHED [runner 9/9] RUN rm -rf   /usr/local/lib/node_modules/npm   /usr/local/lib/node_modu  0.0s
+ => exporting to image                                                                           0.2s
+ => => exporting layers                                                                          0.0s
+ => => exporting manifest sha256:c829898ec2d13012bb2325721fb1c6356f23eb1f921d3dc48fb63aafa7e72d  0.0s
+ => => exporting config sha256:9d3aa7d4b35048ded8f6265a5e494c851930c0281a2f1b1d543823bcbe76dd2b  0.0s
+ => => exporting attestation manifest sha256:91f6215c437d3af2b4975a844f3ad8b20e8ac450a758995044  0.0s
+ => => exporting manifest list sha256:e5f22d97c8216d2e40f8b1968de9b81222acdfba359441dfb7fdb2039  0.0s
+ => => naming to docker.io/library/candidate-api:challenge                                       0.0s
+ => => unpacking to docker.io/library/candidate-api:challenge            
 
 ```
 ```bash
@@ -297,5 +296,6 @@ candidate-api
 
 姓名：李宜蓁
 日期：2026/2/6
+
 
 
